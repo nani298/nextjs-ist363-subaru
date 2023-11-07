@@ -1,0 +1,10 @@
+
+.btn{
+    background-color: aquamarine;
+    &.primary{
+        background-color: blueviolet;
+    }
+    &.secondary{
+        background-color: pink;
+    }
+}
