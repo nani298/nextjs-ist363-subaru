@@ -1,7 +1,12 @@
-import Link from 'next/link';
+import { motion } from "framer-motion"
+
 import Image from 'next/image';
+import Heading from './Heading';
+import Link from 'next/link';
+import Paragraph from './Paragraph'
+
 import styles from './grid.module.scss';
-import { motion } from "framer-motion";
+//import {convertPriceToFormattedString} from '../lib/utilities',
 
 const Grid = ({items}) => {
     const sectionVariants = {
@@ -28,11 +33,20 @@ const Grid = ({items}) => {
     }
 
 
-    return <motion.section initial="closed" animate="open" variants={sectionVariants} className={styles.grid}>
-        {items.map((item,index) =>{
-            const {title,slug,vehicleInformation} = item.node;
-            const {trimLevels} = vehicleInformation;
-            return <motion.article key ={index} variants={articleVariants}>
+    return <motion.section 
+        initial="closed" 
+        animate="open" 
+        variants={sectionVariants} 
+        className={styles.grid}
+        >
+        {items.map((item, index) => {
+            const { title, slug, vehicleInformation } = item.node;
+
+            const { trimLevels } = vehicleInformation;
+            return <motion.article 
+                key ={index} 
+                variants={articleVariants}
+                >
                     {trimLevels && trimLevels[0].images.thumbnail &&
                         <Image 
                             src={trimLevels[0].images.thumbnail.node.sourceUrl}
@@ -41,15 +55,19 @@ const Grid = ({items}) => {
                             height={trimLevels[0].images.thumbnail.node.mediaDetails.height}
                         />
                     }
-                    <h3>{title}</h3>
+                    <Heading level={3} color = "black">{title}</Heading>
 
-                    <p>
+                    <Paragraph>
+                        starting at $29,000 
+                    </Paragraph>
+
+                    <Paragraph>
                         <Link href={`/vehicles/${slug}`}>Learn more</Link>
-                    </p>
+                    </Paragraph>
             </motion.article>
         })}
     </motion.section>
 
 }
 
-export default Grid 
+export default Grid; 
