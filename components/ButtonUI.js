@@ -10,7 +10,7 @@ const ButtonUI = ({clickHandler, icon}) => {
         close: icon === 'close'
     });
     return <button 
-        className={styles.btnui}
+        className={buttonClasses}
         onClick={clickHandler}
     >
         <Image 

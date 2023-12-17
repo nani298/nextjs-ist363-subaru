@@ -52,9 +52,9 @@ const VehichlesPage = ({vehicles, vehicleTypes}) => {
         <Heading>Vehicles</Heading>
         <Container>
             <FilterBar  items= {vehicleTypes} activeItem = {activeVehicleType} setActiveItem={setActiveVehicleType}/>
-            <Grid>
-               items = {filteredVehicles}
-            </Grid>
+            <Grid items = {filteredVehicles} />
+               
+            
         </Container>
     </Layout>
 
