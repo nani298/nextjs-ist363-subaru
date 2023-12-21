@@ -2,7 +2,7 @@ import {useState} from 'react';
 import {AnimatePresence} from 'framer-motion';
 
 import ButtonUI from './ButtonUI';
-
+import Link from 'next/link';
 import Container from './Container';
 import Logo from './Logo';
 import Nav from './Nav';
@@ -15,7 +15,9 @@ const Header = () => {
     return <header className={styles.header}>
         <Container>
             <Row justifyContent="space-between">
-                <Logo />
+                <Link href="/">
+                    <Logo />
+                </Link>
                 <Nav.Desktop />
                 <ButtonUI 
                     icon = "menu" 

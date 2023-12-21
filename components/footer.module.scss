@@ -1,0 +1,21 @@
+.contain{
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    height:auto;
+    &__footer{
+        background-color: gray;
+        padding: 1rem;
+        &__a{
+            //background-color: aquamarine;
+            margin-bottom: 1rem;
+        }
+        &__icons{
+            //background-color: aqua;
+            display: flex;
+            justify-content: center;
+            padding: .5rem;
+            //cursor: pointer;
+        }
+    }
+}

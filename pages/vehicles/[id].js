@@ -1,4 +1,6 @@
+import ColorPicker from '../../components/ColorPicker';
 import Container from '../../components/Container';
+import Head from 'next/head';
 import Heading from '../../components/Heading';
 import Image from 'next/image';
 import Layout from "../../components/Layout";
@@ -47,8 +49,13 @@ export async function getStaticProps({params}) {
 const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
     const {title,slug,featuredImage, vehicleInformation} = vehicleData;
     const {headline}= vehicleInformation.showcase;
-    const{trimLevels} = vehicleInformation;
+    const{trimLevels, vehicleColors} = vehicleInformation;
     return <Layout>
+        <Head>
+            <title>
+                {title} | Subaru USA | Afnan
+            </title>
+        </Head>
         <Showcase 
             subtitle={title}
             title={headline}
@@ -57,10 +64,13 @@ const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
         <div id="main-content">
             <Container>
                 <TrimPicker trims={trimLevels} locations={drivingLocations} />
-            </Container>
-            
+                <ColorPicker 
+                    colors={vehicleColors}
+                
+                />
+            </Container>  
         </div>
-        <Heading level={1} textAlign="center" marginBottom={2} >{title}</Heading>
+        
 
         
 
@@ -68,3 +78,5 @@ const SingleVehiclePage = ({vehicleData, drivingLocations}) => {
 }       
 
 export default SingleVehiclePage;
+
+//<Heading level={1} textAlign="center" marginBottom={2} >{title}</Heading>//

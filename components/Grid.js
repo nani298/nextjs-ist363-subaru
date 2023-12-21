@@ -8,6 +8,14 @@ import Paragraph from './Paragraph'
 import styles from './grid.module.scss';
 //import {convertPriceToFormattedString} from '../lib/utilities',
 
+const convertPriceToFormattedString = (price) => {
+    let priceArray = price.toString().split('');
+    for(let i = priceArray.length -3; i>0; i -= 3) {
+        priceArray.splice(i,0,',');
+    }
+    return '$' + priceArray.join('');
+}
+
 const Grid = ({items}) => {
     const sectionVariants = {
         closed:{
@@ -41,11 +49,11 @@ const Grid = ({items}) => {
         >
         {items.map((item, index) => {
             const { title, slug, vehicleInformation } = item.node;
-
             const { trimLevels } = vehicleInformation;
             return <motion.article 
                 key ={index} 
                 variants={articleVariants}
+                className={styles.grid__item}
                 >
                     {trimLevels && trimLevels[0].images.thumbnail &&
                         <Image 
@@ -56,11 +64,12 @@ const Grid = ({items}) => {
                         />
                     }
                     <Heading level={3} color = "black">{title}</Heading>
-
-                    <Paragraph>
-                        starting at $29,000 
-                    </Paragraph>
-
+                    {trimLevels[0].msrp && 
+                        <Paragraph>
+                            Starting at {convertPriceToFormattedString(trimLevels[0].msrp)}
+                        </Paragraph>
+                    }
+                    
                     <Paragraph>
                         <Link href={`/vehicles/${slug}`}>Learn more</Link>
                     </Paragraph>

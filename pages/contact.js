@@ -1,8 +1,16 @@
-import Layout from '../components/Layout';
+import Container from "../../components/Container";
+import Layout from "../../components/Layout";
+import Heading from "../../components/Heading";
+import Paragraph from '../components/Paragraph';
+import Container from "../../components/Container";
 
 const ContactPage = () => {
     return <Layout>
-        <h1>Contact Page</h1>
+        <Container>
+            <Heading level={1} textAlign="center">Contact Us</Heading>
+            <Paragraph>Looking to buy a Subaru car or SUV? Customize your perfect Subaru vehichle with our tools. Choose models,trims,options,and colors. Build yours today!</Paragraph>
+        </Container>
     </Layout>
+
 }
-export default ContactPage;
+export default ContactPage 
