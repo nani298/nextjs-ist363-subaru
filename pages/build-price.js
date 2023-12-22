@@ -2,7 +2,7 @@ import Container from "../components/Container";
 import Layout from "../components/Layout";
 import Heading from "../components/Heading";
 import Paragraph from '../components/Paragraph';
-import { Button } from "react-scroll";
+//import { Button } from "react-scroll";
 import Link from "next/link";
 import styles from '../components/buildstyles.module.scss';
 
