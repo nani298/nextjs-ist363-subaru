@@ -2,7 +2,7 @@ import Container from "../components/Container";
 import Layout from "../components/Layout";
 import Heading from "../components/Heading";
 import Paragraph from '../components/Paragraph';
-import Container from "../components/Container";
+
 
 const CommitmentPage = () => {
     return <Layout>
